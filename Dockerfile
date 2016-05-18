@@ -12,7 +12,8 @@ RUN apt-get update && \
     chmod +x /usr/sbin/gosu && \
     apt-get remove -y curl && \
     apt-get autoremove -y && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    /usr/sbin/grafana-cli plugins install raintank-snap-app
 
 VOLUME ["/var/lib/grafana", "/var/lib/grafana/plugins", "/var/log/grafana", "/etc/grafana"]
 
